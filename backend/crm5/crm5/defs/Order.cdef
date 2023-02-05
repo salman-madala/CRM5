@@ -1,0 +1,333 @@
+{
+  "name": "Order",
+  "defType": "content",
+  "extendsFrom": "altair.system.Content",
+  "doc": {
+    "desc": "Order"
+  },
+  "relationSchema": {
+    "relations": [
+      {
+        "name": "order_items",
+        "contentType": "Item",
+        "fromCardinality": "OneToMany",
+        "toCardinality": "OneToMany"
+      },
+      {
+        "name": "order_customer",
+        "contentType": "Customer",
+        "fromCardinality": "OneToOne",
+        "toCardinality": "OneToOne"
+      }
+    ]
+  },
+  "actions": [
+    {
+      "name": "updateOrder",
+      "language": "python",
+      "doc": {
+        "desc": "Update Order Python"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "orderRef": {
+            "type": "OrderRef",
+            "required": true,
+            "doc": {
+              "desc": "order ref"
+            }
+          }
+        },
+        "outputs": {
+          "orderRef": {
+            "type": "OrderRef",
+            "required": true,
+            "doc": {
+              "desc": "Order Ref"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "createOrder",
+      "language": "python",
+      "doc": {
+        "desc": "Create Order"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "name": {
+            "type": "string",
+            "required": true,
+            "doc": {
+              "desc": "name"
+            }
+          },
+          "contact": {
+            "type": "string",
+            "required": true,
+            "doc": {
+              "desc": "contact"
+            }
+          },
+          "address": {
+            "type": "string",
+            "doc": {
+              "desc": "address"
+            }
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "ItemRef"
+            },
+            "doc": {
+              "desc": "items"
+            }
+          },
+          "customerRef": {
+            "type": "CustomerRef",
+            "required": true,
+            "doc": {
+              "desc": "customer reference"
+            }
+          }
+        },
+        "outputs": {
+          "orderRef": {
+            "type": "OrderRef",
+            "required": true,
+            "doc": {
+              "desc": "order ref"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "getAllOrders",
+      "language": "python",
+      "doc": {
+        "desc": "getAllOrders"
+      },
+      "inline": true,
+      "schema": {
+        "outputs": {
+          "orders": {
+            "type": "array",
+            "items": {
+              "type": "OrderRef"
+            },
+            "required": true,
+            "doc": {
+              "desc": "order"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "deleteOrder",
+      "language": "python",
+      "doc": {
+        "desc": "DeletePy"
+      },
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "doc": {
+              "desc": "id"
+            }
+          }
+        },
+        "outputs": {
+          "status": {
+            "type": "string",
+            "doc": {
+              "desc": "status"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "getOrder",
+      "language": "python",
+      "doc": {
+        "desc": "Get single order"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "doc": {
+              "desc": "id"
+            }
+          }
+        },
+        "outputs": {
+          "orderRef": {
+            "type": "OrderRef",
+            "required": true,
+            "doc": {
+              "desc": "order basic details"
+            }
+          },
+          "customer": {
+            "type": "CustomerRef",
+            "doc": {
+              "desc": "customer details"
+            }
+          },
+          "obj": {
+            "type": "object",
+            "doc": {
+              "desc": "order Basic details"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "filterOrders",
+      "language": "python",
+      "doc": {
+        "desc": "FilterOrderPy"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "name": {
+            "type": "string",
+            "doc": {
+              "desc": "name"
+            }
+          },
+          "paginationObj": {
+            "type": "object",
+            "doc": {
+              "desc": "pagination object"
+            }
+          }
+        },
+        "outputs": {
+          "orders": {
+            "type": "object",
+            "required": true,
+            "doc": {
+              "desc": "orders"
+            }
+          },
+          "totalOrdersCount": {
+            "type": "number",
+            "required": true,
+            "doc": {
+              "desc": "totalOrdersCount"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "getOrderItems",
+      "language": "python",
+      "doc": {
+        "desc": "get order items"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "id": {
+            "type": "string",
+            "doc": {
+              "desc": "order id"
+            }
+          }
+        },
+        "outputs": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "ItemRef"
+            },
+            "doc": {
+              "desc": "order items"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "deleteOrderItems",
+      "language": "python",
+      "doc": {
+        "desc": "delete the order items"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "orderId": {
+            "type": "string",
+            "doc": {
+              "desc": "orderId"
+            }
+          },
+          "itemId": {
+            "type": "string",
+            "doc": {
+              "desc": "itemId"
+            }
+          }
+        },
+        "outputs": {
+          "status": {
+            "type": "string",
+            "doc": {
+              "desc": "status message"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "schema": {
+    "name": {
+      "type": "string",
+      "doc": {
+        "desc": "name of order"
+      }
+    },
+    "contact": {
+      "type": "string",
+      "doc": {
+        "desc": "contact of order "
+      }
+    },
+    "address": {
+      "type": "string",
+      "doc": {
+        "desc": "address of order "
+      }
+    },
+    "isItems": {
+      "type": "boolean",
+      "doc": {
+        "desc": "having items or not"
+      }
+    }
+  }
+}

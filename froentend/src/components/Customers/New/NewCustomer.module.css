@@ -1,0 +1,39 @@
+.container {
+    display: 'flex';
+    flex-flow: 'column nowrap';
+    align-items: 'stretch';
+}
+
+.header {
+  color: green;
+  margin-top: 25px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.body {
+    flex: '4 4 auto';
+    padding: '0 24px 24px 24px';
+    overflow-y: 'hidden';
+}
+
+.iconButton{
+    color: red;
+    margin-left: 'auto';
+    margin-top: '4px';
+    margin-right: '2px';
+  }
+
+  .rootHovered{
+    color: green;
+  }
+
+  .body{
+    padding: 20px 20px 50px;
+  }
+
+  .submit{
+    margin-top: 10px;
+    text-align: center;
+  }
+ 

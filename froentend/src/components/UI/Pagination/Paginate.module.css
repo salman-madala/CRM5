@@ -1,0 +1,13 @@
+/* .leftContent{
+    float: left;
+    width: 500px;
+    background-color: red;
+}*/
+.rightContent{
+    position: relative;
+    float: right;
+    text-align: center;
+    display: block;
+    width: 500px;
+    background-color: rgb(174, 157, 157);
+} 

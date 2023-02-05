@@ -1,0 +1,9 @@
+{
+  "name": "crm5",
+  "provider": "altair",
+  "version": "1.0.38",
+  "description": "Crm5",
+  "dependencies": [
+    "altair.system"
+  ]
+}

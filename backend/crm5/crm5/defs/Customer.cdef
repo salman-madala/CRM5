@@ -1,0 +1,399 @@
+{
+  "name": "Customer",
+  "defType": "content",
+  "extendsFrom": "altair.system.Content",
+  "doc": {
+    "desc": "Customer "
+  },
+  "actions": [
+    {
+      "name": "createCustomer",
+      "language": "python",
+      "doc": {
+        "desc": "create customer"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "name": {
+            "type": "string",
+            "doc": {
+              "desc": "name"
+            }
+          },
+          "email": {
+            "type": "string",
+            "doc": {
+              "desc": "email"
+            }
+          },
+          "imageId": {
+            "type": "string",
+            "doc": {
+              "desc": "imageId"
+            }
+          }
+        },
+        "outputs": {
+          "customerRef": {
+            "type": "CustomerRef",
+            "doc": {
+              "desc": "customerRef"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "deleteCustomer",
+      "language": "python",
+      "doc": {
+        "desc": "Delete Customer"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "id": {
+            "type": "string",
+            "doc": {
+              "desc": "id"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "getCustomer",
+      "language": "python",
+      "doc": {
+        "desc": "Get single customer"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "id": {
+            "type": "string",
+            "doc": {
+              "desc": "id"
+            }
+          }
+        },
+        "outputs": {
+          "customerRef": {
+            "type": "CustomerRef",
+            "doc": {
+              "desc": "customerRef"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "getAllCustomers",
+      "language": "python",
+      "doc": {
+        "desc": "Get all customers"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "outputs": {
+          "customers": {
+            "type": "array",
+            "items": {
+              "type": "CustomerRef"
+            },
+            "doc": {
+              "desc": "customers"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "filterCustomers",
+      "language": "python",
+      "doc": {
+        "desc": "get Customers based on the filter value"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "val": {
+            "type": "string",
+            "doc": {
+              "desc": "name filter"
+            }
+          },
+          "paginationObj": {
+            "type": "object",
+            "doc": {
+              "desc": "pagination object"
+            }
+          }
+        },
+        "outputs": {
+          "customers": {
+            "type": "array",
+            "items": {
+              "type": "CustomerRef"
+            },
+            "doc": {
+              "desc": "customers"
+            }
+          },
+          "totalCustomersCount": {
+            "type": "number",
+            "doc": {
+              "desc": "totalCustomersCount"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "searchCustomer",
+      "language": "python",
+      "doc": {
+        "desc": "searchCustomer"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "name": {
+            "type": "string",
+            "doc": {
+              "desc": "search value"
+            }
+          }
+        },
+        "outputs": {
+          "customers": {
+            "type": "array",
+            "items": {
+              "type": "CustomerRef"
+            },
+            "doc": {
+              "desc": "customers"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "updateCustomer",
+      "language": "python",
+      "doc": {
+        "desc": "Update Customer"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "id": {
+            "type": "string",
+            "doc": {
+              "desc": "string"
+            }
+          },
+          "customer": {
+            "type": "CustomerRef",
+            "doc": {
+              "desc": "customer Ref"
+            }
+          }
+        },
+        "outputs": {
+          "customer": {
+            "type": "CustomerRef",
+            "doc": {
+              "desc": "customer"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "getCustomerOrders",
+      "language": "python",
+      "doc": {
+        "desc": "get Customer Orders"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "id": {
+            "type": "string",
+            "doc": {
+              "desc": "customer id"
+            }
+          }
+        },
+        "outputs": {
+          "orders": {
+            "type": "array",
+            "items": {
+              "type": "OrderRef"
+            },
+            "doc": {
+              "desc": "customer Orders"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "createCustomerFiles",
+      "language": "python",
+      "doc": {
+        "desc": "customer files"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "fileRef": {
+            "type": "altair.system.FileEntityRef",
+            "doc": {
+              "desc": "files list"
+            }
+          },
+          "customerRef": {
+            "type": "CustomerRef",
+            "doc": {
+              "desc": "customerRef"
+            }
+          }
+        },
+        "outputs": {
+          "status": {
+            "type": "string",
+            "doc": {
+              "desc": "message"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "getCustomerFiles",
+      "language": "python",
+      "doc": {
+        "desc": "get customer files"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "customerRef": {
+            "type": "CustomerRef",
+            "doc": {
+              "desc": "customer files"
+            }
+          }
+        },
+        "outputs": {
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "altair.system.FileEntityRef"
+            },
+            "doc": {
+              "desc": "customer files"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "createCustomerCustomFiles",
+      "language": "python",
+      "doc": {
+        "desc": "create custom Files"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "fileObj": {
+            "type": "CustomFileEntityRef",
+            "doc": {
+              "desc": "description"
+            }
+          }
+        },
+        "outputs": {
+          "status": {
+            "type": "string",
+            "doc": {
+              "desc": "status"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "relationSchema": {
+    "relations": [
+      {
+        "name": "customer_files",
+        "contentType": "altair.system.FileEntity",
+        "fromCardinality": "ZeroToMany",
+        "toCardinality": "OneToOne"
+      },
+      {
+        "name": "customer_customFiles",
+        "contentType": "CustomFileEntity",
+        "fromCardinality": "ZeroToMany",
+        "toCardinality": "OneToOne"
+      }
+    ]
+  },
+  "schema": {
+    "name": {
+      "type": "string",
+      "doc": {
+        "desc": "name of the customer"
+      }
+    },
+    "email": {
+      "type": "string",
+      "doc": {
+        "desc": "email of the customer"
+      }
+    },
+    "imageId": {
+      "type": "string",
+      "doc": {
+        "desc": "image of the customer"
+      }
+    }
+  },
+  "events": [
+    {
+      "name": "CreateCustomerEvent",
+      "extendsFrom": "altair.system.ContentUserEvent",
+      "static": false,
+      "doc": {
+        "desc": "when customer create we can call this event"
+      },
+      "schema": {
+        "payload": {
+          "customerRef": {
+            "type": "CustomerRef",
+            "required": true,
+            "doc": {
+              "desc": "customer Reference"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

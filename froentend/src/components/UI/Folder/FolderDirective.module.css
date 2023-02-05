@@ -1,0 +1,14 @@
+.edit {
+    font-size:"17px";
+    color:"blue"
+}
+.noButton{
+    border-color:"red";
+    color:"red"
+}
+.yesButton{
+   
+}
+.noData{
+    text-align: center;
+}

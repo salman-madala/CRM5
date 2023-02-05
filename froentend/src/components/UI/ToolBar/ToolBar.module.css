@@ -1,0 +1,15 @@
+.title {
+  font-size: 18px;
+  margin-left: 0px;
+  margin-right: 5px;
+}
+
+.iconClass {
+  font-size: 30px;
+  height: 50px;
+  margin-top: 1px;
+}
+
+.ms-TextField-fieldGroup{
+  border-radius: 25px;
+}

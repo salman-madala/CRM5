@@ -1,0 +1,43 @@
+{
+  "name": "File",
+  "defType": "content",
+  "extendsFrom": "altair.system.Content",
+  "doc": {
+    "desc": "file"
+  },
+  "actions": [
+    {
+      "name": "uploadFile",
+      "language": "python",
+      "doc": {
+        "desc": "upload File"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "filepath": {
+            "type": "string",
+            "doc": {
+              "desc": "file path"
+            }
+          },
+          "name": {
+            "type": "string",
+            "doc": {
+              "desc": "name"
+            }
+          }
+        },
+        "outputs": {
+          "fileRef": {
+            "type": "FileRef",
+            "doc": {
+              "desc": "fileRef"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

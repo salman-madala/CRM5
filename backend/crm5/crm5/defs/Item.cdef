@@ -1,0 +1,257 @@
+{
+  "name": "Item",
+  "defType": "content",
+  "extendsFrom": "altair.system.Content",
+  "doc": {
+    "desc": "Item"
+  },
+  "actions": [
+    {
+      "name": "updateItem",
+      "language": "python",
+      "doc": {
+        "desc": "update Item "
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "itemRef": {
+            "type": "ItemRef",
+            "required": true,
+            "doc": {
+              "desc": "item Ref"
+            }
+          }
+        },
+        "outputs": {
+          "itemRef": {
+            "type": "ItemRef",
+            "required": true,
+            "doc": {
+              "desc": "item Ref"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "createItem",
+      "language": "python",
+      "doc": {
+        "desc": "Create action"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "name": {
+            "type": "string",
+            "required": true,
+            "doc": {
+              "desc": "name"
+            }
+          },
+          "cost": {
+            "type": "number",
+            "required": true,
+            "doc": {
+              "desc": "cost"
+            }
+          }
+        },
+        "outputs": {
+          "itemRef": {
+            "type": "ItemRef",
+            "required": true,
+            "doc": {
+              "desc": "itemRef"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "deleteItem",
+      "language": "python",
+      "doc": {
+        "desc": "DeletePy"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "doc": {
+              "desc": "id"
+            }
+          }
+        },
+        "outputs": {
+          "status": {
+            "type": "string",
+            "doc": {
+              "desc": "status"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "getAllItems",
+      "language": "python",
+      "doc": {
+        "desc": "getAllItems"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "outputs": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "ItemRef"
+            },
+            "required": true,
+            "doc": {
+              "desc": "all items"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "getItem",
+      "language": "python",
+      "doc": {
+        "desc": "Get single item "
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "id": {
+            "type": "string",
+            "required": true,
+            "doc": {
+              "desc": "id"
+            }
+          }
+        },
+        "outputs": {
+          "itemRef": {
+            "type": "ItemRef",
+            "required": true,
+            "doc": {
+              "desc": "item reference"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "filterItems",
+      "language": "python",
+      "doc": {
+        "desc": "Filter Item "
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "name": {
+            "type": "string",
+            "doc": {
+              "desc": "name"
+            }
+          },
+          "paginationObj": {
+            "type": "object",
+            "doc": {
+              "desc": "pagination Object"
+            }
+          }
+        },
+        "outputs": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "ItemRef"
+            },
+            "doc": {
+              "desc": "items"
+            }
+          },
+          "totalItemsCount": {
+            "type": "number",
+            "doc": {
+              "desc": "totalItemsCount"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "getItemOrders",
+      "language": "python",
+      "doc": {
+        "desc": "get item orders"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "id": {
+            "type": "string",
+            "doc": {
+              "desc": "item id"
+            }
+          }
+        },
+        "outputs": {
+          "orders": {
+            "type": "array",
+            "items": {
+              "type": "OrderRef"
+            },
+            "doc": {
+              "desc": "item present in this orders"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "getItemCustomers",
+      "language": "python",
+      "doc": {
+        "desc": "getItemCustomers"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "id": {
+            "type": "string",
+            "doc": {
+              "desc": "itemId"
+            }
+          }
+        },
+        "outputs": {
+          "customers": {
+            "type": "array",
+            "items": {
+              "type": "CustomerRef"
+            },
+            "doc": {
+              "desc": "customers"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

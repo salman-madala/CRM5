@@ -1,0 +1,193 @@
+{
+  "name": "CustomFileEntity",
+  "defType": "content",
+  "extendsFrom": "altair.system.Content",
+  "doc": {
+    "desc": "custom file Entity"
+  },
+  "schema": {
+    "description": {
+      "type": "string",
+      "doc": {
+        "desc": "Description of a file"
+      }
+    },
+    "isLock": {
+      "type": "boolean",
+      "doc": {
+        "desc": "isFile Lock or not"
+      }
+    },
+    "contentRef": {
+      "doc": {
+        "desc": "reference of item,customer,order"
+      }
+    },
+    "fileRef": {
+      "type": "altair.system.FileEntityRef",
+      "doc": {
+        "desc": " file Ref"
+      }
+    }
+  },
+  "actions": [
+    {
+      "name": "createFile",
+      "language": "python",
+      "doc": {
+        "desc": "create file "
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "contentRef": {
+            "type": "object",
+            "doc": {
+              "desc": "contentRef of (customer/item/order)"
+            }
+          },
+          "description": {
+            "type": "string",
+            "doc": {
+              "desc": "description"
+            }
+          },
+          "islock": {
+            "type": "boolean",
+            "default": false,
+            "doc": {
+              "desc": "is lock"
+            }
+          },
+          "fileRef": {
+            "type": "altair.system.FileEntityRef",
+            "doc": {
+              "desc": "file Ref"
+            }
+          }
+        },
+        "outputs": {
+          "file": {
+            "type": "object",
+            "doc": {
+              "desc": "added file"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "getFiles",
+      "language": "python",
+      "doc": {
+        "desc": "get files "
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "contentRef": {
+            "type": "object",
+            "doc": {
+              "desc": "contnet ref (customer/item/order)"
+            }
+          }
+        },
+        "outputs": {
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "doc": {
+              "desc": "files"
+            }
+          },
+          "count": {
+            "type": "number",
+            "doc": {
+              "desc": "number of files count"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "updateFile",
+      "language": "python",
+      "doc": {
+        "desc": "update File"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "id": {
+            "type": "string",
+            "doc": {
+              "desc": "customFileId"
+            }
+          },
+          "description": {
+            "type": "string",
+            "doc": {
+              "desc": "description"
+            }
+          },
+          "islock": {
+            "type": "boolean",
+            "doc": {
+              "desc": "islock"
+            }
+          }
+        },
+        "outputs": {
+          "status": {
+            "type": "string",
+            "doc": {
+              "desc": "status"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "deleteFile",
+      "language": "python",
+      "doc": {
+        "desc": "delete single file"
+      },
+      "static": true,
+      "inline": true,
+      "schema": {
+        "inputs": {
+          "id": {
+            "type": "string",
+            "doc": {
+              "desc": "customFileId"
+            }
+          }
+        },
+        "outputs": {
+          "status": {
+            "type": "string",
+            "doc": {
+              "desc": "deletion status"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "relationSchema": {
+    "relations": [
+      {
+        "name": "CustomFileEntity_files",
+        "contentType": "altair.system.FileEntity",
+        "fromCardinality": "OneToOne",
+        "toCardinality": "OneToOne"
+      }
+    ]
+  }
+}

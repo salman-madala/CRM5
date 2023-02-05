@@ -1,0 +1,25 @@
+{
+  "forgotPasswordUri": "https://altair.oktapreview.com/signin/forgot-password",
+  "altairAdminBaseUrl": "https://stage.admin.altairone.com",
+  "registerUri": "https://stage.admin.altairone.com/register",
+  "oidc": {
+    "clientId": "0oas3lsqr6bct14Tv0h7",
+    "issuer": "https://altair.oktapreview.com/oauth2/default",
+    "redirectUri": "http://localhost:3000/implicit/callback",
+    "postLogoutRedirectUri": "http://localhost:3000",
+    "assertClaims": {
+      "aud": "api://default"
+    },
+    "pkce": true,
+    "responseType": ["code", "token"],
+    "scopes": ["offline_access"],
+    "tokenManager": {
+      "storageKey": "aone-token-storage"
+    },
+    "services": {
+      "autoRemove": true,
+      "autoRenew": true,
+      "syncStorage": true
+    }
+  }
+}
